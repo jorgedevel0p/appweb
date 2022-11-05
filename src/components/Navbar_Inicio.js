@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
+import { Navbar, Nav, Container } from "react-bootstrap"
 
 
 
@@ -7,35 +8,23 @@ export const Navbar_Inicio = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <Link to='/'>
-          <a class="navbar-brand" href="#">Siglo XXI</a>
-        </Link>
-        
+      <Navbar className="navBg" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand as={Link} to="/" >RESTAURANT SIGLO XXI</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/Carta" >Carta</Nav.Link>
+              <Nav.Link as={Link} to="/Nosotros">Nosotros</Nav.Link>
+              <Nav.Link as={Link} to="/login">Iniciar Sesión</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <Link to='/carta'>
-              <a class="nav-link" href="#">Carta <span class="sr-only">(current)</span></a>
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link to='/Nosotros'>
-                <a class="nav-link" href="#">Nosotros</a>
-              </Link>
-            </li>
-
-            <li class="nav-item">
-              <Link to='/login'>
-                <a class="nav-link" href="#">Iniciar Sesión</a>
-              </Link>
-            </li>
-          </ul>
-
-        </div>
-      </nav>
+      <section>
+        <Outlet></Outlet>
+      </section>
     </>
   )
 

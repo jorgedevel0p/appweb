@@ -32,7 +32,7 @@ export const Carta = () => {
     return (
         <>
             <Navbar_Inicio />
-            <h5 class="card-title">Carta</h5>
+            <h5 class="card-title-carta">Carta</h5>
             <div className='card-body'>
                 <table className='table'>
                     <thead>

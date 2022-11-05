@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
+import { Navbar_Inicio } from '../components'
 import { Footer } from '../components/Footer'
 import { useHttpRequest } from '../hooks/useHttpRequest'
 
@@ -62,6 +63,7 @@ export const Login = () => {
 
   return (
     <>
+    <Navbar_Inicio />
 
       <main className="py-5 px-4">
         <div className="container mt-5">
