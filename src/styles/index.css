@@ -1,0 +1,42 @@
+.platoCard {
+   display: flex;
+   flex-flow: row nowrap;
+   height: 180px;
+   width: 100%;
+   max-width: 480px;
+   margin-bottom: 40px;
+
+}
+
+.platoImg{
+    height: 100%;
+    width: 100%;
+}
+
+.imgContainer{
+    height: 100%;
+    width: 200px;
+}
+.imgContainer img{
+    height: 100%;
+    width: 100%;
+}
+
+.infoContainer{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 16px;
+    text-align: left;
+}
+.multi-line-truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.btnPlatoCard{
+    width: 100%;
+}
