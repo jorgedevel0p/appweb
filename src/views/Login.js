@@ -50,6 +50,11 @@ export const Login = () => {
         }
         localStorage.setItem('type_user', data.type)
         localStorage.setItem('token', data.access)
+        localStorage.setItem('username', data.username)
+        localStorage.setItem('id', data.id)
+        localStorage.setItem('name', data.name)
+        localStorage.setItem('email', data.email)
+
         console.log({ data })
 
         console.log(data.type)
