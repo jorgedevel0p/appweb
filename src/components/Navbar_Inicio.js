@@ -21,10 +21,6 @@ export const Navbar_Inicio = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      <section>
-        <Outlet></Outlet>
-      </section>
     </>
   )
 

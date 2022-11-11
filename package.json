@@ -23,10 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "dev": "concurrently -k \"npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron .",
-    "generate-win": "npm run build && cd .. && npx electron-packager ./electron-react-template myTestApp3 --platform=win32 --arch=x64 && cd electron-react-template"
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "concurrently": "^7.3.0",

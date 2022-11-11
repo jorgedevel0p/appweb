@@ -1,17 +1,15 @@
 import React, { useContext } from 'react'
 import { Layout_Cliente } from './components/index'
-// import Fondo1080 from "./assets/img/720x120.jpg"
+import Fondo_Cliente from './assets/Fondo_Cliente.png'
 import restaurantContext from './context/restaurantContext'
 
 export const Clientes = () => {
     return (
         <>
             <Layout_Cliente>
-                {/* <div>
-                    <img src={Fondo1080}
-                        className="card-img"
-                        height={140} />
-                </div> */}
+                <div>
+                    <img src={Fondo_Cliente} className="card-img" height={140} />
+                </div>
                 <h1 className="text-center mt-3">
                     Restaurant Siglo XXI
                 </h1>
@@ -36,24 +34,9 @@ export const Clientes = () => {
                         <div class="alert alert-success mx-1" role="alert">
                             Realiza estiramientos para no tener dolores lumbares
                         </div>
-
                     </div>
                 </form>
-
             </Layout_Cliente>
-            {/* <h1>Menú</h1>
-      <div>
-      <div>
-        <ul>
-          <li>{platos.data.map(plato => plato.type_dish)}</li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li>{platos.data.map(plato => plato.name)}</li>
-        </ul>
-      </div>
-      </div> */}
         </>
     )
 }
