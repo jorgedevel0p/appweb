@@ -12,6 +12,8 @@ import Fondo_Cliente from '../assets/Fondo_Cliente.png'
 
 export const Hacer_Reserva = () => {
 
+   
+
     return (
         <>
             <Layout_Cliente>
@@ -21,6 +23,9 @@ export const Hacer_Reserva = () => {
 
                 <h1 className="text-center">Hacer Nueva Reserva</h1>
                 <hr></hr>
+            
+
+
 
             </Layout_Cliente>
             <Footer />
