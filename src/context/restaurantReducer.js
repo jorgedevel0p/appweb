@@ -22,7 +22,8 @@ import {
     GET_FACTURAS_ERROR,
     GET_PEDIDOSPROV_SUCCESS,
     GET_DETALLEORDS_SUCCESS,
-    GET_ORDENES_SUCCESS
+    GET_ORDENES_SUCCESS,
+    GET_RESERVAS_SUCCESS,
 
 } from './types'
 
@@ -256,6 +257,22 @@ export default (state, action) => {
                 ...state,
                 ordenes: {
                     ...state.ordenes,
+                    data: action.payload,
+                    fetchingStatus: {
+                        loading: false,
+                        success: true,
+                        error: false,
+                        errorInfo: null
+                    }
+                }
+            }
+        }
+
+        case GET_RESERVAS_SUCCESS: {
+            return {
+                ...state,
+                reservas: {
+                    ...state.reservas,
                     data: action.payload,
                     fetchingStatus: {
                         loading: false,
