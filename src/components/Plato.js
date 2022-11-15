@@ -18,9 +18,9 @@ export const Plato = ({ image, title, description, price, buttonText, onPress })
           {price}
         </p>
 
-        <button type="button" className="btn btn-sm btn-success btnPlatoCard" onClick={onPress} >
+        {/* <button type="button" className="btn btn-sm btn-success btnPlatoCard" onClick={onPress} >
           {buttonText}
-        </button>
+        </button> */}
 
       </div>
     </div>

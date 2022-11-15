@@ -3,23 +3,48 @@ import restaurantReducer from './restaurantReducer'
 import RestaurantContext from './restaurantContext'
 import { useHttpRequest } from '../hooks/useHttpRequest'
 
+/* const DUMMY_MESAS_DATA = [
+  {
+    "id": 1,
+    "number_name": "1",
+    "capacity": 2,
+    "available": false,
+    "user": 2,
+    "reservas_mesa": []
+  },
+  {
+    "id": 2,
+    "number_name": "2",
+    "capacity": 5,
+    "available": true,
+    "user": 2,
+    "reservas_mesa": []
+  },
+  {
+    "id": 5,
+    "number_name": "5",
+    "capacity": 5,
+    "available": true,
+    "user": 2,
+    "reservas_mesa": [
+      {
+        "id": 24,
+        "status": "Reservado",
+        "date": "2022-03-14",
+        "time": "13:30:00",
+        "date_reserva": "2022-11-17T12:00:00Z"
+      },
+    ],
+  },
+] */
+
 import {
-  GET_USERS_LOADING,
-  GET_USERS_SUCCESS,
-  GET_USERS_ERROR,
   GET_MESAS_SUCCESS,
-  GET_PRODUCTOS_SUCCESS,
-  GET_PROVEEDORES_SUCCESS,
-  GET_PLATOS_SUCCESS,
-  GET_BOLETAS_SUCCESS,
-  GET_FACTURAS_SUCCESS,
-  GET_PEDIDOSPROV_SUCCESS,
-  GET_DETALLEORDS_SUCCESS,
-  GET_ORDENES_SUCCESS,
-  GET_RESERVAS_SUCCESS
+  GET_RESERVAS_SUCCESS,
+  GET_MESAS_LOADING,
+  GET_MESAS_ERROR
 
 } from './types'
-// import { stat } from 'original-fs'
 
 const fetchingStatus = {
   loading: false,
@@ -29,51 +54,16 @@ const fetchingStatus = {
 }
 
 const INITIAL_STATE = {
-  users: {
+  reservas: {
     data: [],
     fetchingStatus
   },
-  proveedores: {
-    data: [],
-    fetchingStatus
-  },
-  productos: {
-    data: [],
-    fetchingStatus
-  },
-  platos: {
-    data: [],
-    fetchingStatus
-  },
-  reservas:{
-    data: [],
-    fetchingStatus
-  }
+  mesas: { data: [], fetchingStatus },
 }
 
 const RestaurantState = (props) => {
   const [state, dispatch] = useReducer(restaurantReducer, INITIAL_STATE)
   const { makeHttpRequest } = useHttpRequest()
-
-  function getUserById(id) {
-    return state.users.data.find(user => user.id === id)
-  }
-
-  function getReservaByUser(id) {
-    return state.reservas.data.find(user => user.id === id)
-  }
-
-  function getProductosById(id) {
-    return state.productos.data.find(producto => producto.id === id)
-  }
-
-  function getProveedoresById(id) {
-    return state.proveedores.data.find(proveedor => proveedor.id === id)
-  }
-
-  function getPlatosById(id) {
-    return state.platos.data.find(plato => plato.id === id)
-  }
 
   function getResourcesByName(resource) {
     return new Promise((resolve, reject) => {
@@ -90,98 +80,33 @@ const RestaurantState = (props) => {
     })
   }
 
-  function getUsers(){
-    getResourcesByName('user').then(res => dispatch({ type: GET_USERS_SUCCESS, payload: res }))
+  async function getMesas() {
+    try {
+      dispatch({ type: GET_MESAS_LOADING })
+      const mesas = await getResourcesByName('mesa')
+      dispatch({ 
+        type: GET_MESAS_SUCCESS, 
+        payload: mesas 
+      })
+    } catch (error) {
+      dispatch({ type: GET_MESAS_ERROR })
+    }
   }
-
-  function getMesas(){
-    getResourcesByName('mesa').then(res => dispatch({ type: GET_MESAS_SUCCESS, payload: res }))
-  }
-
-  function getProductos(){
-    getResourcesByName('producto').then(res => dispatch({ type: GET_PRODUCTOS_SUCCESS, payload: res }))
-  }
-
-  function getProveedores(){
-    getResourcesByName('proveedor').then(res => dispatch({ type: GET_PROVEEDORES_SUCCESS, payload: res }))
-  }
-
-  function getPlatos(){
-    getResourcesByName('plato').then(res => dispatch({ type: GET_PLATOS_SUCCESS, payload: res }))
-  }
-
-  function getBoletas(){
-    getResourcesByName('boleta').then(res => dispatch({ type: GET_BOLETAS_SUCCESS, payload: res }))
-  }
-
-  function getFacturas(){
-    getResourcesByName('factura').then(res => dispatch({ type: GET_FACTURAS_SUCCESS, payload: res }))
-  }
-
-  function getPedidosProv(){
-    getResourcesByName('pedido_proveedor').then(res => dispatch({ type: GET_PEDIDOSPROV_SUCCESS, payload: res }))
-  }
-
-  function getDetalleOrds(){
-    getResourcesByName('detalle_orden').then(res => dispatch({ type: GET_DETALLEORDS_SUCCESS, payload: res }))
-  }
-
-  function getOrdenes(){
-    getResourcesByName('orden').then(res => dispatch({ type: GET_ORDENES_SUCCESS, payload: res }))
-  }
-
-  function getReservas(){
-    getResourcesByName('reserva').then(res => dispatch({ type: GET_RESERVAS_SUCCESS, payload: res }))
-  }
-
 
   useEffect(() => {
-    
-    getUsers()
     getMesas()
-    getProductos()
-    getProveedores(),
-    getPlatos()
-    getBoletas(),
-    getFacturas(),
-    getPedidosProv(),
-    getDetalleOrds(),
-    getOrdenes(),
-    getReservas()
-
   }, [])
 
-
+  function getMesasById(id) {
+    return state.mesas.data.find(mesa => mesa.id === id)
+  }
 
   return (
     <RestaurantContext.Provider
       value={{
-        users: state.users,
         mesas: state.mesas,
-        productos: state.productos,
-        proveedores: state.proveedores,
-        platos: state.platos,
-        boletas: state.boletas,
-        facturas: state.facturas,
-        pedidos_proveedor: state.pedidos_proveedor,
-        detalle_ordenes: state.detalle_ordenes,
-        ordenes: state.ordenes,
-        reservas: state.reservas,
-        getUsers,
         getMesas,
-        getProductos,
-        getProveedores,
-        getPlatos,
-        getBoletas,
-        getFacturas,
-        getPedidosProv,
-        getDetalleOrds,
-        getOrdenes,
-        getPlatosById,
-        getProductosById,
-        getProveedoresById,
-        getUserById,
-        getReservaByUser,
+        getMesasById
       }}
     >
       {props.children}

@@ -40,3 +40,22 @@
 .btnPlatoCard{
     width: 100%;
 }
+
+.pizarraM{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+}
+
+.mesaPizarra{
+    height: 70px;
+    width: 90px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
