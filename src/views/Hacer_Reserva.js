@@ -45,6 +45,7 @@ export const Hacer_Reserva = () => {
           return
         }
         alert(data, 'Ha guardado Reserva correctamente')
+        mesasDisponibles();
       }
     })
   }

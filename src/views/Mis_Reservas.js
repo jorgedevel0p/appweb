@@ -13,6 +13,7 @@ const DEFAULT_STATE = {
     user: '',
     date: '',
     time: '',
+    date_reserva: '',
 }
 
 export const Mis_Reservas = () => {
@@ -146,6 +147,7 @@ export const Mis_Reservas = () => {
                                     <th scope='col'>Reserva</th>
                                     <th scope='col'>Estado</th>
                                     <th scope='col'>Mesa</th>
+                                    <th scope='col'>Horario</th>
                                     <th scope='col'>Fecha</th>
                                     <th scope='col'>Hora</th>
                                     <th scope='col'>Cancelar</th>
@@ -157,6 +159,7 @@ export const Mis_Reservas = () => {
                                         <td>{res.id}</td>
                                         <td>{res.status}</td>
                                         <td>{res.mesa}</td>
+                                        <td>{res.date_reserva}</td>
                                         <td>{res.date}</td>
                                         <td>{res.time}</td>
                                     </tr>

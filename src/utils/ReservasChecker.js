@@ -1,11 +1,11 @@
 import { DateTime } from 'luxon'
 
 const checkIfReservaCouldBePossible = ({ selectedDate, reservaMesa }) => {
-  const reservaDate = DateTime.fromISO(reservaMesa.date_reserva).plus({ hours: 3 })
+  const reservaDate = DateTime.fromISO(reservaMesa.date_reserva)
   const reservaRequested = DateTime.fromISO(selectedDate.toISOString())
   const isSameDay = reservaDate.hasSame(reservaRequested, 'day')
-  const isEarlyAvailable = reservaRequested.startOf('minutes') < reservaDate.minus({ minutes: 119 }).startOf('minutes')
-  const isLaterAvailable = reservaRequested.startOf('minutes') > reservaDate.plus({ minutes: 119 }).startOf('minutes')
+  const isEarlyAvailable = reservaRequested.startOf('minutes') < reservaDate.minus({ minutes: 120 }).startOf('minutes')
+  const isLaterAvailable = reservaRequested.startOf('minutes') > reservaDate.plus({ minutes: 120 }).startOf('minutes')
 
   let canMakeReservation = true
   if(!isSameDay){
@@ -25,7 +25,7 @@ export const getAvailableMesasForThatDate = ({ selectedDate, mesas }) => {
     if(!mesa.reservas_mesa.length){
       return true
     }
-    const mesaTieneCupo = mesa.reservas_mesa.some(reserva => checkIfReservaCouldBePossible({ selectedDate, reservaMesa: reserva }))
+    const mesaTieneCupo = mesa.reservas_mesa.every(reserva => checkIfReservaCouldBePossible({ selectedDate, reservaMesa: reserva }))
     return mesaTieneCupo
   })
   return availableMesas
