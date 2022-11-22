@@ -4,7 +4,6 @@ import { Navbar_Inicio } from '../components'
 import { Footer } from '../components/Footer'
 import { useHttpRequest } from '../hooks/useHttpRequest'
 
-
 export const Login = () => {
   const navigate = useNavigate()
   const { isLoading, error, makeHttpRequest } = useHttpRequest()
@@ -13,10 +12,8 @@ export const Login = () => {
     Cliente: '/clientes',
   }
 
-
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
 
   const handleUsername = (evento) => {
     const value = evento.target.value
@@ -34,7 +31,6 @@ export const Login = () => {
     const data = {
       username: username,
       password: password,
-
 
     }
 
@@ -68,12 +64,10 @@ export const Login = () => {
 
   return (
     <>
-    <Navbar_Inicio />
-
       <main className="py-5 px-4">
         <div className="container mt-5">
           <div className="col-md-4 offset-md-4">
-            <div className="card">
+            <div className="'card '">
               <div className="card-header text-center">
                 <h4>Iniciar Sesión</h4>
               </div>
@@ -120,7 +114,6 @@ export const Login = () => {
           </div>
         </div>
       </main>
-      <Footer />
     </>
 
   )

@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Clientes } from './Home'
 import { Login } from './views/Login'
 import { Registro } from "./views/Registro";
@@ -16,7 +16,7 @@ import { Recepcion } from "./viewTotem/Recepcion"
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/clientes" element={<Clientes />} />
@@ -43,8 +43,8 @@ function App() {
           }
         />
       </Routes>
-    </HashRouter>
-  );
+    </BrowserRouter>
+  );        
 }
 
 export default App;

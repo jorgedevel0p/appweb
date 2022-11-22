@@ -37,8 +37,9 @@ export const Carta = () => {
               title={plato.name}
               description={plato.description}
               price={plato.value}
-              buttonText={'Agregar'}
-              onPress={() => console.log(plato)}
+              
+              // buttonText={'Agregar'}
+              // onPress={() => console.log(plato)}
             />
           ))}
         </div>

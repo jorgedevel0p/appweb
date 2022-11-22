@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Plato = ({ image, title, description, price, buttonText, onPress }) => {
+export const PlatoVenta = ({ image, title, description, price, buttonText, onPress }) => {
   return (
     <div className="col-sm-6 col-md-8">
     <div className="platoCard">
@@ -18,9 +18,9 @@ export const Plato = ({ image, title, description, price, buttonText, onPress })
           {price}
         </p>
 
-        {/* <button type="button" className="btn btn-sm btn-success btnPlatoCard" onClick={onPress} disabled={false} >
+        <button type="button" className="btn btn-sm btn-success btnPlatoCard" onClick={onPress}>
           {buttonText}
-        </button> */}
+        </button>
 
       </div>
     </div>
