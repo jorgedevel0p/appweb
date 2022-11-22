@@ -7,6 +7,11 @@ import { Nosotros } from "./views/Nosotros";
 import { Carta } from "./views/Carta";
 import { Hacer_Reserva } from "./views/Hacer_Reserva";
 import { Mis_Reservas } from "./views/Mis_Reservas";
+import { LoginMesa } from "./viewsMesa/LoginMesa"
+import { RegistroMesa } from "./viewsMesa/RegistroMesa"
+import { MenuMesa } from "./viewsMesa/MenuMesa"
+import { PedidoMesa } from "./viewsMesa/PedidoMesa"
+import { Recepcion } from "./viewTotem/Recepcion"
 
 
 function App() {
@@ -21,6 +26,12 @@ function App() {
         <Route path="/carta" element={<Carta/>}/>
         <Route path="/hacerReserva" element={<Hacer_Reserva/>}/>
         <Route path="/misReservas" element={< Mis_Reservas/>}/>
+        <Route path="/loginMesa" element={< LoginMesa/>}/>
+        <Route path="/registroMesa" element={< RegistroMesa/>}/>
+        <Route path="/menuMesa" element={< MenuMesa/>}/>
+        <Route path="/pedidoMesa" element={< PedidoMesa/>}/>
+        <Route path="/recepcion" element={< Recepcion/>}/>
+
         
 
         <Route

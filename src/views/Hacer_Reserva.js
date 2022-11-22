@@ -47,12 +47,14 @@ export const Hacer_Reserva = () => {
         alert(data, 'Ha guardado Reserva correctamente')
         mesasDisponibles();
       }
-    })
+    }) 
+    
   }
 
   useEffect(() => {
     const availableMesas = getAvailableMesasForThatDate({ selectedDate: startDate, mesas: mesas.data })
     setMesasDisponibles(availableMesas)
+    
   }, [startDate])
 
   return (
