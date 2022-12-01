@@ -1,14 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { DateTime } from 'luxon'
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-import { Footer } from '../components/Footer'
-import { Layout_Cliente, PizarraMesas } from '../components'
-import Fondo_Cliente from '../assets/Fondo_Cliente.png'
+import { PizarraMesas } from '../components'
 import restaurantContext from '../context/restaurantContext'
 import { getAvailableMesasForThatDate } from '../utils/ReservasChecker'
 import { useHttpRequest } from '../hooks/useHttpRequest'
+
 
 export const Recepcion = () => {
     const { makeHttpRequest } = useHttpRequest()
@@ -29,7 +26,7 @@ export const Recepcion = () => {
         const reservaToSave = {
             status: 'Reservado',
             mesa: mesa,
-            user: 8, //Hay que cambiarlo a user "Invitado", en el mio es 8 pero no sé en los demás
+            user: 7, //Hay que cambiarlo a user "Invitado", en el mio es 8 pero no sé en los demás
             date: reservaDate.toISODate(),
             time: reservaDate.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
             date_reserva: startDate
@@ -45,30 +42,26 @@ export const Recepcion = () => {
                     return
                 }
                 console.log(data) 
-                alert(data, 'Ha guardado Reserva correctamente') 
                 
-              
-            },
-        })
-        
-        
-
+                alert(data, 'Ha guardado Reserva correctamente')                             
+            },   
+            mesasDisponibles
+        })             
     }
 
     useEffect(() => {
         const availableMesas = getAvailableMesasForThatDate({ selectedDate: startDate, mesas: mesas.data })
-        setMesasDisponibles(availableMesas)
-        
+        setMesasDisponibles(availableMesas)        
     }, [startDate])
 
-    return (
+    return ( 
         <>
             <main className=''>
-                <form className='container' style={{ width: 600 }}>
-                    
+                <form className='container' style={{ width: 600 }}>                    
                     <PizarraMesas
                         mesas={mesas.data}
                         mesasDisponibles={mesasDisponibles}
+                        
                         onSelectMesa={setMesa}
                     />
                     <div className="text-center">
@@ -80,7 +73,6 @@ export const Recepcion = () => {
                         )}
                     </div>
                 </form>
-
             </main>
         </>
     )

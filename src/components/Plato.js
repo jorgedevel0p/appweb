@@ -15,7 +15,7 @@ export const Plato = ({ image, title, description, price, buttonText, onPress })
           {description}
         </div>
         <p className='platoPrice'>
-          {price}
+          ${price}
         </p>
 
         {/* <button type="button" className="btn btn-sm btn-success btnPlatoCard" onClick={onPress} disabled={false} >

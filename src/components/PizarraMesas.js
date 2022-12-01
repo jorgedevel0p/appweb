@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const PizarraMesas = ({ mesas, mesasDisponibles, onSelectMesa }) => {
   const getIsMesaDisabled = (id) => {
@@ -8,7 +9,7 @@ export const PizarraMesas = ({ mesas, mesasDisponibles, onSelectMesa }) => {
 
   return (
     <div className='col mb-3'>
-      <h6 for="pizarraMesas" class="form-label text-center mb-4">Mesa a reservar</h6>
+      <h6 for="pizarraMesas" class="form-label text-center my-4">Mesa a reservar</h6>
       <div className='pizarraM card'>
         {mesas.map(mesa => (
           <button
@@ -19,6 +20,8 @@ export const PizarraMesas = ({ mesas, mesasDisponibles, onSelectMesa }) => {
             onClick={() => onSelectMesa(mesa.id)}
           >
             <div>Mesa {mesa.number_name}</div>
+            
+            <div><i class="fa-solid fa-utensils "></i> {mesa.capacity}</div>
           </button>
         ))}
       </div>

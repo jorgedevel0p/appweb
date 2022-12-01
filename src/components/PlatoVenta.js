@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PlatoVenta = ({ image, title, description, price, buttonText, onPress }) => {
+export const PlatoVenta = ({ image, title, description, price, buttonText, onPress, buttonEliminar, onPressE }) => {
   return (
     <div className="col-sm-6 col-md-8">
     <div className="platoCard">
@@ -15,11 +15,14 @@ export const PlatoVenta = ({ image, title, description, price, buttonText, onPre
           {description}
         </div>
         <p className='platoPrice'>
-          {price}
+          ${price}
         </p>
 
         <button type="button" className="btn btn-sm btn-success btnPlatoCard" onClick={onPress}>
           {buttonText}
+        </button>
+        <button type="button" className="btn btn-sm btn-secondary btnPlatoCard" onClick={onPressE}>
+          {buttonEliminar}
         </button>
 
       </div>

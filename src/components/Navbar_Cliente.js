@@ -10,6 +10,12 @@ export const Navbar_Cliente = () => {
                     <svg className="bi pe-none me-2" width="40" height="32"></svg>
                     <span className="fs-4">Cliente</span>
                 </a>
+                <Link to='/pedidoMesa'>
+                    <a href="#" className="nav-link text-white">
+                    
+                        
+                    </a>
+                </Link>
             </Link>
             <hr />
             <ul className="nav nav-pills flex-column mb-auto">

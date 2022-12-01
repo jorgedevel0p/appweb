@@ -8,7 +8,10 @@ import { useHttpRequest } from '../hooks/useHttpRequest'
 export const PedidoMesa = () => {
     return (
         <>
-        
+            <nav className="navbar navbar-dark bg-dark">
+                <h1 className='text-white m-2'>Detalle</h1>                
+            </nav>
+
         </>
     )
 }
