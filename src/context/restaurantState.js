@@ -3,7 +3,7 @@ import restaurantReducer from './restaurantReducer'
 import RestaurantContext from './restaurantContext'
 import { useHttpRequest } from '../hooks/useHttpRequest'
 
-const DUMMY_MESAS_DATA = [
+/* const DUMMY_MESAS_DATA = [
   {
     "id": 1,
     "number_name": "1",
@@ -36,7 +36,7 @@ const DUMMY_MESAS_DATA = [
       },
     ],
   },
-]
+] */
 
 import {
   GET_MESAS_SUCCESS,
@@ -85,7 +85,7 @@ const RestaurantState = (props) => {
       const mesas = await getResourcesByName('mesa')
       dispatch({ 
         type: GET_MESAS_SUCCESS, 
-        payload: DUMMY_MESAS_DATA 
+        payload: mesas 
       })
     } catch (error) {
       dispatch({ type: GET_MESAS_ERROR })
