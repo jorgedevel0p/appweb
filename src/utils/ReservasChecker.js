@@ -22,6 +22,7 @@ const checkIfReservaCouldBePossible = ({ selectedDate, reservaMesa }) => {
 
 export const getAvailableMesasForThatDate = ({ selectedDate, mesas }) => {
   const availableMesas = mesas.filter(mesa => {
+    if(!mesa.reservas_mesa) return true
     if(!mesa.reservas_mesa.length){
       return true
     }

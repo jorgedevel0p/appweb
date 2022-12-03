@@ -3,7 +3,7 @@ import restaurantReducer from './restaurantReducer'
 import RestaurantContext from './restaurantContext'
 import { useHttpRequest } from '../hooks/useHttpRequest'
 
-/* const DUMMY_MESAS_DATA = [
+const DUMMY_MESAS_DATA = [
   {
     "id": 1,
     "number_name": "1",
@@ -32,11 +32,11 @@ import { useHttpRequest } from '../hooks/useHttpRequest'
         "status": "Reservado",
         "date": "2022-03-14",
         "time": "13:30:00",
-        "date_reserva": "2022-11-17T12:00:00Z"
+        "date_reserva": "2022-12-02T15:00:00Z"
       },
     ],
   },
-] */
+]
 
 import {
   GET_MESAS_SUCCESS,
@@ -73,7 +73,6 @@ const RestaurantState = (props) => {
         method: 'GET',
         callback: ({ ok, data }) => {
           if (!ok) reject(new Error('error al obtener datos'))
-          console.log(data)
           resolve(data)
         }
       })
@@ -86,7 +85,7 @@ const RestaurantState = (props) => {
       const mesas = await getResourcesByName('mesa')
       dispatch({ 
         type: GET_MESAS_SUCCESS, 
-        payload: mesas 
+        payload: DUMMY_MESAS_DATA 
       })
     } catch (error) {
       dispatch({ type: GET_MESAS_ERROR })

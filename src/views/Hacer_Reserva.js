@@ -32,7 +32,7 @@ export const Hacer_Reserva = () => {
       user: localStorage.getItem('id') ?? 1,
       date: reservaDate.toISODate(),
       time: reservaDate.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
-      date_reserva: startDate
+      date_reserva: reservaDate.toISO()
     }
 
     makeHttpRequest({
