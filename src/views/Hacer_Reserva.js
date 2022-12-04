@@ -12,7 +12,7 @@ import { useHttpRequest } from '../hooks/useHttpRequest'
 
 export const Hacer_Reserva = () => {
   const { makeHttpRequest } = useHttpRequest()
-  const { mesas, getMesasById } = useContext(restaurantContext)
+  const { mesas, getMesasById, getMesas } = useContext(restaurantContext)
   const [mesasDisponibles, setMesasDisponibles] = useState([])
 
   const [mesa, setMesa] = useState('')
@@ -46,6 +46,7 @@ export const Hacer_Reserva = () => {
         }
         alert(data, 'Ha guardado Reserva correctamente')
         mesasDisponibles();
+        getMesas()
       }
     }) 
     
@@ -54,8 +55,7 @@ export const Hacer_Reserva = () => {
   useEffect(() => {
     const availableMesas = getAvailableMesasForThatDate({ selectedDate: startDate, mesas: mesas.data })
     setMesasDisponibles(availableMesas)
-    
-  }, [startDate])
+  }, [startDate, mesas])
 
   return (
     <>
