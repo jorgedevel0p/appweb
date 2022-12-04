@@ -48,13 +48,21 @@ export const Hacer_Reserva = () => {
         mesasDisponibles();
         getMesas()
       }
-    }) 
-    
+    })
+
+  }
+
+  const checkmesas = () => {
+    const availableMesas = getAvailableMesasForThatDate({ selectedDate: startDate, mesas: mesas.data })
+    setMesasDisponibles(availableMesas)
   }
 
   useEffect(() => {
-    const availableMesas = getAvailableMesasForThatDate({ selectedDate: startDate, mesas: mesas.data })
-    setMesasDisponibles(availableMesas)
+    checkmesas()
+  }, [])
+
+  useEffect(() => {
+    checkmesas()
   }, [startDate, mesas])
 
   return (

@@ -9,7 +9,7 @@ import { useHttpRequest } from '../hooks/useHttpRequest'
 
 export const Recepcion = () => {
     const { makeHttpRequest } = useHttpRequest()
-    const { mesas, getMesasById } = useContext(restaurantContext)
+    const { mesas, getMesasById, getMesas } = useContext(restaurantContext)
     const [mesasDisponibles, setMesasDisponibles] = useState([])
 
     const [mesa, setMesa] = useState('')
@@ -29,7 +29,7 @@ export const Recepcion = () => {
             user: 7, //Hay que cambiarlo a user "Invitado", en el mio es 8 pero no sé en los demás
             date: reservaDate.toISODate(),
             time: reservaDate.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
-            date_reserva: startDate
+            date_reserva: reservaDate.toISO()
         }
 
         makeHttpRequest({
@@ -42,17 +42,24 @@ export const Recepcion = () => {
                     return
                 }
                 console.log(data) 
-                
+                getMesas()
                 alert(data, 'Ha guardado Reserva correctamente')                             
             },   
-            mesasDisponibles
         })             
     }
 
-    useEffect(() => {
+    const checkmesas = () => {
         const availableMesas = getAvailableMesasForThatDate({ selectedDate: startDate, mesas: mesas.data })
-        setMesasDisponibles(availableMesas)        
-    }, [startDate])
+        setMesasDisponibles(availableMesas)   
+    }
+
+    useEffect(() => {
+        checkmesas()
+    }, [])
+
+    useEffect(() => {
+        checkmesas()    
+    }, [startDate, mesas])
 
     return ( 
         <>
