@@ -112,7 +112,7 @@ export const Login = () => {
 
                 <div className="form-group  text-center">
                   <Link to='/Registro'>
-                  <a href="#" className="btn col-6 btn-success btn-block mt-2">Registrarse</a>                  </Link>
+                  <a href="#" className="btn col-6 btn-success btn-block mt-2">Registrarse</a></Link>
                 </div>
 
               </div>

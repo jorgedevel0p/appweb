@@ -46,6 +46,7 @@ export const Recepcion = () => {
                 alert(data, 'Ha guardado Reserva correctamente')                             
             },   
         })     
+        window.location.reload();
         console.log(reservaToSave)        
     }
 

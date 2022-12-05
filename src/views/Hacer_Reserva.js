@@ -18,6 +18,8 @@ export const Hacer_Reserva = () => {
   const [mesa, setMesa] = useState('')
   const [startDate, setStartDate] = useState(new Date())
 
+
+
   const saveReserva = () => {
     if (!mesa) return
 
@@ -49,6 +51,7 @@ export const Hacer_Reserva = () => {
         getMesas()
       }
     })
+    window.location.reload();
     console.log(reservaToSave)
   }
 
