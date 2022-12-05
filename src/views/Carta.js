@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHttpRequest } from '../hooks/useHttpRequest'
-import { Navbar_Inicio, Plato } from '../components'
+import { Footer, Navbar_Inicio, Plato } from '../components'
 
 export const Carta = () => {
   const [platos, setPlatos] = useState([])
@@ -44,6 +44,7 @@ export const Carta = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   )
 }

@@ -45,7 +45,8 @@ export const Recepcion = () => {
                 getMesas()
                 alert(data, 'Ha guardado Reserva correctamente')                             
             },   
-        })             
+        })     
+        console.log(reservaToSave)        
     }
 
     const checkmesas = () => {

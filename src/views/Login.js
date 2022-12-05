@@ -64,6 +64,13 @@ export const Login = () => {
 
   return (
     <>
+    <nav className='bg-black'>
+        <div className="row justify-content-center ">
+          <Link to='/' className='text-decoration-none'>
+            <a href="#" className="nav-link text-white my-3 mx-5 fs-5 ">RESTAURANT SIGLO XXI</a>
+          </Link>
+        </div>
+      </nav>
       <main className="py-5 px-4">
         <div className="container mt-5">
           <div className="col-md-4 offset-md-4">
@@ -95,7 +102,7 @@ export const Login = () => {
                         (<div className="spinner-border" role="status">
                           <span className="visually-hidden">Loading...</span>
                         </div>)
-                        : (<button className="btn btn-primary btn-block" onClick={handleSubmit} /* disabled={!username || !password} */>Ingresar</button>)
+                        : (<button className='btn col-6 btn-primary btn-block' onClick={handleSubmit} /* disabled={!username || !password} */>Ingresar</button>)
                     }
                   </div>
 
@@ -103,10 +110,9 @@ export const Login = () => {
 
                 {/* <p className="text-center">O</p> */}
 
-                <div className="form-group mt-4 text-center">
+                <div className="form-group  text-center">
                   <Link to='/Registro'>
-                    <a href="#" className="btn btn-success btn-block ">Registrarse</a>
-                  </Link>
+                  <a href="#" className="btn col-6 btn-success btn-block mt-2">Registrarse</a>                  </Link>
                 </div>
 
               </div>

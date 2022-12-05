@@ -49,7 +49,7 @@ export const Hacer_Reserva = () => {
         getMesas()
       }
     })
-
+    console.log(reservaToSave)
   }
 
   const checkmesas = () => {

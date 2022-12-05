@@ -56,8 +56,15 @@ export const Registro = () => {
 
   return (
     <>
-      <div className='container col-4'>
-        <div className='card'>
+      <nav className='bg-black'>
+        <div className="row justify-content-center ">
+          <Link to='/' className='text-decoration-none'>
+            <a href="#" className="nav-link text-white my-3 mx-5 fs-5 ">RESTAURANT SIGLO XXI</a>
+          </Link>
+        </div>
+      </nav>
+      <div className='container col-4 my-4'>
+        <div className="'card'">
           <div className="card-header text-center">
             <h4>Registrate</h4>
           </div>
