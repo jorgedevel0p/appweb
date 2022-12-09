@@ -22,20 +22,7 @@ export const Nosotros = () => {
           <p class="card-text-parrafo">Siglo XXI comenzó siendo restaurant familiar el cual lleva 50 años entregando y perfeccionando sus preparaciones de comida casera siempre entregando el mejor servicio a las familias de Chile.</p>
         </div>
       </div>
-
-
-      <div class="card mb-3">
-        <div className="card text-white bg-secondary text-center ">
-          <h2 class="card-text">Estamos ubicados en: Bellavista 0350, 7500000 Providencia, Región Metropolitana</h2>
-          <h2 class="card-text">Nuestro horario de atención es de lunes y martes de 12:00 a 21:00, y de miercoles a domingo de 12:00 a 22:00</h2>
-        </div>
-      </div>
-
-
-
-
-
-      <Footer />
+      <Footer/>
     </>
   )
 
