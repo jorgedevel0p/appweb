@@ -9,6 +9,7 @@ export const Footer = () => {
            <div className="col-lg-4 col-md-12 col-sm-12">
                         <div className='col-12'>RESTAURANT SIGLO XXI</div>
                         <div className='col-12'>Bellavista 0350, Providencia</div>
+                        <div className='col-12'>Lunes a domingo, 11:00 a 03:00</div>
                     </div>
                 </div>
             </div>

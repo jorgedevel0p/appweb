@@ -150,7 +150,7 @@ export const Mis_Reservas = () => {
                                     <th scope='col'>Horario</th>
                                     <th scope='col'>Fecha</th>
                                     <th scope='col'>Hora</th>
-                                    <th scope='col'>Cancelar</th>
+                                    <th scope='col'>Eliminar</th>
                                 </tr>
                             </thead>
                             <tbody className='table-group-divider'>
@@ -162,6 +162,16 @@ export const Mis_Reservas = () => {
                                         <td>{res.date_reserva}</td>
                                         <td>{res.date}</td>
                                         <td>{res.time}</td>
+                                        <td>
+                                        <button
+                                            type='button'
+                                            className='btn btn-danger btn-xs'
+                                            onClick={() => deleteReserva(res.id)}>
+                                            <i
+                                                className="fa-solid fa-trash">
+                                            </i>
+                                        </button>
+                                    </td>
                                     </tr>
                                 ))}
                             </tbody>

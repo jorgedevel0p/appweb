@@ -97,7 +97,7 @@ export const Hacer_Reserva = () => {
             {mesa && (
               <>
                 <div>Seleccionaste la mesa: <b> {getMesasById(mesa).number_name} </b> </div>
-                <button type='button' className='btn btn-info' onClick={saveReserva}>Reservar!</button>
+                <button type='button' className='btn btn-info mb-4' onClick={saveReserva}>Reservar!</button>
               </>
             )}
           </div>
