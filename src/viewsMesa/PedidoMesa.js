@@ -25,6 +25,7 @@ export const PedidoMesa = () => {
 
   const realizarPedido = async () => {
     const dateNow = DateTime.now()
+    const dateNow2 = DateTime.now().plus({hours: 2})
 
     if (!mesa) {
       AlertInfo({ text: 'Selecciona una mesa para continuar', icon: 'warning', title: 'En que mesa estás ?' })
@@ -34,25 +35,32 @@ export const PedidoMesa = () => {
     setIsLoading(true)
 
     const ordenRequest = {
-      time: dateNow.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
+      start_time: dateNow.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
       mesa: Number(mesa),
       date: dateNow.toISO(),
+      // start_time: '00:00:00',
+      end_time: dateNow2.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
       /* date: dateNow.toISODate(), */
       number_people: 999,
       state: true
     }
-
+    console.log(ordenRequest, 'orden')
     let respuestaOrden = null
+    
     try {
       respuestaOrden = await makeHttpRequestPromise({ operation: '/orden/', data: ordenRequest, method: 'POST' })
+
     } catch (error) {
       console.log(error, 'error al guardar orden!')
       AlertInfo({ text: 'El backend ta malo', icon: 'error', title: 'Error al guardar orden' })
       setIsLoading(false)
       return
     }
+    
+    console.log(respuestaOrden.data.id, 'dataorden')
 
-    const ordenId = respuestaOrden.idRespondidDelBackend // <--- se obtiene ID de la orden para usarlo mas abajo
+
+    const ordenId = respuestaOrden.data.id // <--- se obtiene ID de la orden para usarlo mas abajo
 
     const detalleOrdenBatch = carrito.map(plato => {
       const detalleOrdenRequest = {
@@ -119,7 +127,10 @@ export const PedidoMesa = () => {
               {carrito.map((plato, index) => (
                 <li key={index} class="list-group-item text-start">
                   <img src={plato.image_plato} class="rounded float-start mr-2" style={{ height: 25, width: 35 }}></img>
-                  <span className='m-5'>1 {plato.name}</span>
+                  <span className='m-5'>1</span>
+                  <span className='m-5' >{plato.name}</span>
+                  <span className='m-5'> ${plato.value}</span>
+                  
                 </li>
               ))}
             </ul>
