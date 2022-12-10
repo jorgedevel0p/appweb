@@ -3,6 +3,8 @@ import {
   GET_MESAS_SUCCESS,
   GET_MESAS_ERROR,
   GET_RESERVAS_SUCCESS,
+  GET_PRODUCTOS_SUCCESS,
+  GET_PRODUCTOS_LOADING,
 } from './types'
 
 export default (state, action) => {
@@ -59,6 +61,38 @@ export default (state, action) => {
         ...state,
         reservas: {
           ...state.reservas,
+          data: action.payload,
+          fetchingStatus: {
+            loading: false,
+            success: true,
+            error: false,
+            errorInfo: null
+          }
+        }
+      }
+    }
+
+    case GET_PRODUCTOS_LOADING: {
+      return {
+        ...state,
+        productos: {
+          ...state.productos,
+          data: action.payload,
+          fetchingStatus: {
+            loading: true,
+            success: false,
+            error: false,
+            errorInfo: null
+          }
+        }
+      }
+    }
+
+    case GET_PRODUCTOS_SUCCESS: {
+      return {
+        ...state,
+        productos: {
+          ...state.productos,
           data: action.payload,
           fetchingStatus: {
             loading: false,

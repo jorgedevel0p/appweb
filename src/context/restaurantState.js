@@ -42,7 +42,10 @@ import {
   GET_MESAS_SUCCESS,
   GET_RESERVAS_SUCCESS,
   GET_MESAS_LOADING,
-  GET_MESAS_ERROR
+  GET_MESAS_ERROR,
+  GET_PRODUCTOS_LOADING,
+  GET_PRODUCTOS_SUCCESS,
+  GET_PRODUCTOS_ERROR
 
 } from './types'
 
@@ -55,6 +58,10 @@ const fetchingStatus = {
 
 const INITIAL_STATE = {
   reservas: {
+    data: [],
+    fetchingStatus
+  },
+  productos: {
     data: [],
     fetchingStatus
   },
@@ -92,8 +99,23 @@ const RestaurantState = (props) => {
     }
   }
 
+  async function getProductos() {
+    try {
+      dispatch({ type: GET_PRODUCTOS_LOADING })
+      const prods = await getResourcesByName('plato')
+      dispatch({ 
+        type: GET_PRODUCTOS_SUCCESS, 
+        payload: prods 
+      })
+    } catch (error) {
+      console.log(error, 22222)
+      dispatch({ type: GET_PRODUCTOS_ERROR })
+    }
+  }
+
   useEffect(() => {
     getMesas()
+    getProductos()
   }, [])
 
   function getMesasById(id) {
@@ -104,6 +126,7 @@ const RestaurantState = (props) => {
     <RestaurantContext.Provider
       value={{
         mesas: state.mesas,
+        productos: state.productos,
         getMesas,
         getMesasById
       }}
