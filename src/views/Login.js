@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { Navbar_Inicio } from '../components'
 import { Footer } from '../components/Footer'
 import { useHttpRequest } from '../hooks/useHttpRequest'
+//import { useState,useEffect } from 'react'
+//import { ClipLoader  } from 'react-spinners'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -61,8 +63,24 @@ export const Login = () => {
       }
     })
   }
+//function login(){
+//  const [loading , setLoading] = useEffect(false)
+//  useEffect(()=>{
+//    setLoading(true)
+ //   setTimeout(() => {
+   //   setLoading(false)
+      
+    //}, 5000);
+
+  //},[])
+
+//}
 
   return (
+    
+
+    
+
     <>
     <nav className='bg-black'>
         <div className="row justify-content-center ">
@@ -70,6 +88,8 @@ export const Login = () => {
             <a href="#" className="nav-link text-white my-3 mx-5 fs-5 ">RESTAURANT SIGLO XXI</a>
           </Link>
         </div>
+
+
       </nav>
       <main className="py-5 px-4">
         <div className="container mt-5">
@@ -99,14 +119,23 @@ export const Login = () => {
                     {
                       isLoading
                         ?
-                        (<div className="spinner-border" role="status">
-                          <span className="visually-hidden">Loading...</span>
+                        
+                        (<div className="spinner-border text-primary" role="status">
+                         
+                         
                         </div>)
-                        : (<button className='btn col-6 btn-primary btn-block' onClick={handleSubmit} /* disabled={!username || !password} */>Ingresar</button>)
+                        : (<button className='btn col-6 btn-primary btn-block' type='button' onClick={handleSubmit} /* disabled={!username || !password} */>Ingresar
+                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="false"></span>
+                         <span class="sr-only">Loading...</span>
+                        
+                        </button>)
+                        
                     }
+                    
                   </div>
-
+                  
                 </form>
+                
 
                 {/* <p className="text-center">O</p> */}
 
