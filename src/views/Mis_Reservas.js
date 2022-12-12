@@ -19,7 +19,7 @@ const DEFAULT_STATE = {
 export const Mis_Reservas = () => {
 
 
-    const nameUser = localStorage.getItem('username')
+    const nameUser = localStorage.getItem('name')
     const idUser = parseInt(localStorage.getItem('id'))
     const emailUser = localStorage.getItem('email')
     const userName = localStorage.getItem('username')

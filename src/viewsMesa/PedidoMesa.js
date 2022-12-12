@@ -26,7 +26,7 @@ export const PedidoMesa = () => {
 
   const realizarPedido = async () => {
     const dateNow = DateTime.now()
-    const dateNow2 = DateTime.now().plus({hours: 2})
+    const dateNow2 = DateTime.now().plus({ hours: 2 })
 
     if (!mesa) {
       AlertInfo({ text: 'Selecciona una mesa para continuar', icon: 'warning', title: 'En que mesa estás ?' })
@@ -47,7 +47,7 @@ export const PedidoMesa = () => {
     }
     console.log(ordenRequest, 'orden')
     let respuestaOrden = null
-    
+
     try {
       respuestaOrden = await makeHttpRequestPromise({ operation: '/orden/', data: ordenRequest, method: 'POST' })
 
@@ -57,7 +57,7 @@ export const PedidoMesa = () => {
       setIsLoading(false)
       return
     }
-    
+
     console.log(respuestaOrden.data.id, 'dataorden')
 
 
@@ -109,15 +109,17 @@ export const PedidoMesa = () => {
 
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark">
+      <nav className="navbar navbar-dark bg-dark p-3">
         <h1 className='text-white m-2'>Detalle</h1>
+
         <Link to='/menuMesa'>
           <a href="#" className="nav-link text-white">
 
             <i className="fa-solid fa-utensils m-2" style={{ color: '#ffffff' }}></i>
+            Volver a Menú
           </a>
         </Link>
-       
+
       </nav>
       <div className="container text-center">
         <h4 className='mt-4'>Mi carrito</h4>
@@ -132,7 +134,7 @@ export const PedidoMesa = () => {
                   <span className='m-5'>1</span>
                   <span className='m-5' >{plato.name}</span>
                   <span className='m-5'> ${plato.value}</span>
-                  
+
                 </li>
               ))}
             </ul>
@@ -147,7 +149,7 @@ export const PedidoMesa = () => {
               <div class="card-body">
                 <p>Monto total: {getChileFormatMoney(getMontoTotalCarrito())} </p>
                 <p>Propina sugerida: --- por hacer... --- </p>
-                
+
 
                 <div className="mb-3" style={{ paddingLeft: 100, paddingRight: 100 }}>
                   <label for="user" class="form-label text-center">Numero Mesa</label>
@@ -191,7 +193,7 @@ export const PedidoMesa = () => {
           </div>
 
         </div>
-    
+
 
 
 
