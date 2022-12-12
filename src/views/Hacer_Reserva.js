@@ -43,10 +43,12 @@ export const Hacer_Reserva = () => {
       method: 'POST',
       callback: ({ ok, data }) => {
         if (!ok) {
-          alert(JSON.stringify(data))
+          console.log('Datos incorrectos. Intente nuevamente')
+          console.log(JSON.stringify(data))
           return
         }
-        alert(data, 'Ha guardado Reserva correctamente')
+        alert('Ha guardado Reserva correctamente')
+        console.log(JSON.stringify(data))
         mesasDisponibles();
         getMesas()
       }

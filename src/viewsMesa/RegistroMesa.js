@@ -37,8 +37,8 @@ export const RegistroMesa = () => {
       method: 'POST',
       callback: ({ ok, data }) => {
         if (!ok) {
-          alert(JSON.stringify(data)) 
-          console.log(data)
+          alert('Verifica los datos ingresados. Intenta nuevamente')
+          console.log(JSON.stringify(data))
           return
         }
 

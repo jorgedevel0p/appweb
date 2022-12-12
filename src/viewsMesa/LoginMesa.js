@@ -37,7 +37,8 @@ export const LoginMesa = () => {
       callback: (respuestaApi) => {
         const { ok, data } = respuestaApi
         if (!ok) {
-          alert(JSON.stringify(data))
+          alert('Datos incorrectos. Intente nuevamente')
+          console.log(JSON.stringify(data))
           return
         }
         localStorage.setItem('type_user', data.type)

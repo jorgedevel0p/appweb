@@ -109,7 +109,8 @@ export const Mis_Reservas = () => {
                     alert(JSON.stringify(data))
                     return
                 }
-                console.log(data, 'Se ha eliminado la reserva correctamente')
+                alert('Se ha eliminado la reserva correctamente')
+                console.log(JSON.stringify(data))
                 getReservas()
             }
         })
@@ -146,10 +147,10 @@ export const Mis_Reservas = () => {
                                 <tr>
                                     <th scope='col'>Reserva</th>
                                     <th scope='col'>Estado</th>
-                                    <th scope='col'>Mesa</th>
-                                    <th scope='col'>Horario</th>
+                                    <th scope='col'>Mesa</th>                                    
                                     <th scope='col'>Fecha</th>
                                     <th scope='col'>Hora</th>
+                                    {/* <th scope='col'>Horario</th> */}
                                     <th scope='col'>Eliminar</th>
                                 </tr>
                             </thead>
@@ -158,10 +159,10 @@ export const Mis_Reservas = () => {
                                     <tr>
                                         <td>{res.id}</td>
                                         <td>{res.status}</td>
-                                        <td>{res.mesa}</td>
-                                        <td>{res.date_reserva}</td>
+                                        <td>{res.mesa}</td>                                       
                                         <td>{res.date}</td>
                                         <td>{res.time}</td>
+                                        {/* <td>{res.date_reserva}</td> */}
                                         <td>
                                         <button
                                             type='button'
