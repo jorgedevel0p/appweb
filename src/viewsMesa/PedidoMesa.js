@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useHttpRequest } from '../hooks/useHttpRequest'
 import restaurantContext from '../context/restaurantContext'
 import { AlertInfo } from '../utils/Alert'
+import { FormCheck } from 'react-bootstrap'
 
 
 export const PedidoMesa = () => {
@@ -52,7 +53,7 @@ export const PedidoMesa = () => {
 
     } catch (error) {
       console.log(error, 'error al guardar orden!')
-      AlertInfo({ text: 'El backend ta malo', icon: 'error', title: 'Error al guardar orden' })
+      AlertInfo({ text: 'Problemas de conexión', icon: 'error', title: 'Error al guardar orden' })
       setIsLoading(false)
       return
     }
@@ -77,7 +78,7 @@ export const PedidoMesa = () => {
     try {
       await Promise.all(detalleOrdenBatch)
     } catch (error) {
-      AlertInfo({ text: 'El backend ta malo', icon: 'error', title: 'Error al guardar detalles ordenes' })
+      AlertInfo({ text: 'Problemas de conexión', icon: 'error', title: 'Error al guardar detalles ordenes' })
       setIsLoading(false)
       return
 
@@ -116,6 +117,7 @@ export const PedidoMesa = () => {
             <i className="fa-solid fa-utensils m-2" style={{ color: '#ffffff' }}></i>
           </a>
         </Link>
+       
       </nav>
       <div className="container text-center">
         <h4 className='mt-4'>Mi carrito</h4>
@@ -145,6 +147,7 @@ export const PedidoMesa = () => {
               <div class="card-body">
                 <p>Monto total: {getChileFormatMoney(getMontoTotalCarrito())} </p>
                 <p>Propina sugerida: --- por hacer... --- </p>
+                
 
                 <div className="mb-3" style={{ paddingLeft: 100, paddingRight: 100 }}>
                   <label for="user" class="form-label text-center">Numero Mesa</label>
@@ -188,6 +191,7 @@ export const PedidoMesa = () => {
           </div>
 
         </div>
+    
 
 
 
