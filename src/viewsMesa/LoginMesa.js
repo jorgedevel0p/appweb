@@ -89,10 +89,15 @@ export const LoginMesa = () => {
                       {
                         isLoading
                           ?
-                          (<div className="spinner-border" role="status">
-                            <span className="visually-hidden">Loading...</span>
+                          (<div className="spinner-border text-primary" role="status">
+                         
+                         
                           </div>)
-                          : (<button className="btn col-6 btn-block btn-secondary btn-block" onClick={handleSubmit} /* disabled={!username || !password} */>Ingresar</button>)
+                          : (<button className='btn col-6 btn-primary btn-block' type='button' onClick={handleSubmit} /* disabled={!username || !password} */>Ingresar
+                           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="false"></span>
+                           <span class="sr-only">Loading...</span>
+                          
+                          </button>)
                       }
                     </div>
                   </div>
