@@ -9,7 +9,7 @@ const DEFAULT_STATE = {
   name: '',
   last_name: '',
   email: '',
-  type: '',
+  type: 'Cliente',
   password: '',
 }
 
@@ -37,20 +37,21 @@ export const RegistroMesa = () => {
       method: 'POST',
       callback: ({ ok, data }) => {
         if (!ok) {
-          alert(JSON.stringify(data))
+          alert(JSON.stringify(data)) 
+          console.log(data)
           return
         }
 
 
-        localStorage.setItem('type_user', data.type)
-        localStorage.setItem('token', data.access)
-        localStorage.setItem('username', data.username)
-        localStorage.setItem('id', data.id)
-        localStorage.setItem('name', data.name)
-        localStorage.setItem('email', data.email)
-        console.log(data, 'Ha guardado Usuario correctamente')
+        localStorage.setItem('type_user', form.type)
+        localStorage.setItem('token', form.access)
+        localStorage.setItem('username', form.username)
+        localStorage.setItem('id', form.id)
+        localStorage.setItem('name', form.name)
+        localStorage.setItem('email', form.email)
+        console.log(form, 'Ha guardado Usuario correctamente')
 
-        console.log(routeToNavigate)
+        console.log(form.type)
         navigate('/menuMesa')
 
       }
