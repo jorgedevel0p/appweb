@@ -49,9 +49,9 @@ export const Login = () => {
         }
         localStorage.setItem('type_user', data.type)
         localStorage.setItem('token', data.access)
-        localStorage.setItem('username', data.username)
-        localStorage.setItem('id', data.id)
-        localStorage.setItem('name', data.name)
+        localStorage.setItem('username', "Cliente")
+        localStorage.setItem('id', "7")
+        localStorage.setItem('name', "Cristiano Ronaldo")
         localStorage.setItem('email', data.email)
         if(data.username != 'Cliente'){
           alert('Intente nuevamente con una cuenta de cliente')
