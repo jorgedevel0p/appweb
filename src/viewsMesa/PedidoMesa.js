@@ -148,7 +148,7 @@ export const PedidoMesa = () => {
               </div>
               <div class="card-body">
                 <p>Monto total: {getChileFormatMoney(getMontoTotalCarrito())} </p>
-                <p>Propina sugerida: --- por hacer... --- </p>
+                {/* <p>Propina sugerida: --- por hacer... --- </p> */}
 
 
                 <div className="mb-3" style={{ paddingLeft: 100, paddingRight: 100 }}>

@@ -42,7 +42,7 @@ export const Login = () => {
       method: 'POST',
       callback: (respuestaApi) => {
         const { ok, data } = respuestaApi
-        if (!ok) {
+        if (!ok ) {
           alert('Datos incorrectos. Intente nuevamente')
           console.log(JSON.stringify(data))
           return
@@ -53,6 +53,11 @@ export const Login = () => {
         localStorage.setItem('id', data.id)
         localStorage.setItem('name', data.name)
         localStorage.setItem('email', data.email)
+        if(data.username != 'Cliente'){
+          alert('Intente nuevamente con una cuenta de cliente')
+          console.log(JSON.stringify(data))
+          return
+        }
 
         console.log({ data })
 
@@ -150,6 +155,7 @@ export const Login = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </>
 
   )

@@ -180,7 +180,7 @@ export const Mis_Reservas = () => {
                     </div>
                 </div>
             </Layout_Cliente>
-            <Footer />
+           
         </>
     )
 }

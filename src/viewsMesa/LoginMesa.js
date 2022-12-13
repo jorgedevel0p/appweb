@@ -47,6 +47,11 @@ export const LoginMesa = () => {
         localStorage.setItem('id', data.id)
         localStorage.setItem('name', data.name)
         localStorage.setItem('email', data.email)
+        if(data.username != 'Cliente'){
+          alert('Intente nuevamente con una cuenta de cliente')
+          console.log(JSON.stringify(data))
+          return
+        }
 
         console.log({ data })
 

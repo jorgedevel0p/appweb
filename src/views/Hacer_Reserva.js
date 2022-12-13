@@ -105,7 +105,7 @@ export const Hacer_Reserva = () => {
           </div>
         </form>
       </Layout_Cliente>
-      <Footer />
+    
     </>
   )
 }

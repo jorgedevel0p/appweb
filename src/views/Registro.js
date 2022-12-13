@@ -44,7 +44,7 @@ export const Registro = () => {
           alert('Verifica los datos ingresados. Intente nuevamente.')
           return
         }
-        console.log(data, 'Ha guardado Usuario correctamente')
+        console.log('Ha guardado Usuario correctamente')
 
         const routeToNavigate = ROUTES_DEPEND_ON_TYPE[form.type]
         console.log(routeToNavigate)
